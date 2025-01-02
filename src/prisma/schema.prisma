@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Enlace {
+  id          Int          @id @default(autoincrement())
+  url         String
+  titulo      String
+  descripcion String?      @default("Sin descripcion")
+  fechaCreacion DateTime   @default(now())
+  votos       Int          @default(0)   // Campo para almacenar el total de votos
+  comentarios Comentario[]
+  etiquetas   EnlaceEtiqueta[]
+}
+
+model Comentario {
+  id            Int       @id @default(autoincrement())
+  contenido     String
+  fechaComentario DateTime @default(now())
+  enlaceId      Int
+  enlace        Enlace    @relation(fields: [enlaceId], references: [id])
+  usuarioId     Int?
+}
+
+model Etiqueta {
+  id     Int     @id @default(autoincrement())
+  nombre String  @unique
+  enlaces EnlaceEtiqueta[]
+}
+
+model EnlaceEtiqueta {
+  enlaceId   Int
+  etiquetaId Int
+  enlace     Enlace   @relation(fields: [enlaceId], references: [id])
+  etiqueta   Etiqueta @relation(fields: [etiquetaId], references: [id])
+
+  @@id([enlaceId, etiquetaId]) // Define una clave compuesta para asegurar que cada enlace/etiqueta sea único
+}
+
