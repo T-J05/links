@@ -102,6 +102,28 @@ export default class Links{
         }
     }
     
+    async getLinksByTitle(req,res){
+        const { titulo } = req.query;
+        try{
+            const resultSearch = await prisma.enlace.findMany({
+                where:{
+                    titulo:{
+                        contains : titulo,
+                        mode: 'insensitive',
+                    },
+                },
+            });
+            if (resultSearch.length === 0) {
+                return res.status(404).json({ message: 'No se encontraron enlaces con ese título' });
+              }
+              
+            res.status(200).json({resultados : resultSearch})
+        }catch(error){
+            res.status(500).json({'error al obtener links por titulo':error.message})
+            console.log({'error al obtener links por titulo':error.message,'error':error})
+        }
+        
+    }
 
 
     async SumarVotos(req,res){

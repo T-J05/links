@@ -4,13 +4,14 @@
   "description": "bakend de crud de enlaces con comentarios y votos",
   "main": "index.js",
   "type": "module",
- "scripts": {
-  "dev": "nodemon index.js"
-},
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
   "author": "T-J05",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.1.0",
+    "cors": "^2.8.5",
     "prisma": "^6.1.0"
   },
   "devDependencies": {

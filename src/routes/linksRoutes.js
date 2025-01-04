@@ -11,6 +11,7 @@ linkRouter.get('/', links.viewAllLinks)
 
 linkRouter.get('/:nombreEtiqueta',links.getLinksByTag)
 
+linkRouter.get('/busqueda',links.getLinksByTitle)
 
 linkRouter.post('/',links.createLink)
 
