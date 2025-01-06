@@ -29,8 +29,10 @@ export default class Links{
     
     async createLink(req, res) {
         const { url, titulo, descripcion, etiquetas } = req.body;
-    
-        console.log('Etiqueta recibida:', etiquetas);  // Verifica que se reciba el objeto de etiqueta correctamente
+        if (!url || !titulo || !descripcion || !etiquetas) {
+            return res.status(400).json({ error: 'Faltan datos requeridos' }); // Respuesta JSON en caso de error
+          }
+        console.log(req.body);  // Verifica que se reciba el objeto de etiqueta correctamente
     
         try {
             // Verifica que "etiquetas" sea un objeto (no un array en este caso)
@@ -63,7 +65,7 @@ export default class Links{
     
             console.log('Enlace creado:', newLink);
     
-            res.status(200).json({ 'Exito': 'Creación exitosa', newLink });
+            res.status(200).json({ 'success': 'Creación exitosa', newLink });
         } catch (error) {
             console.error('Error al crear el enlace:', error.message);
             res.status(500).json({ error: 'Error al crear enlace', details: error });
@@ -72,35 +74,36 @@ export default class Links{
     
     
     async getLinksByTag(req, res) {
-        const { nombreEtiqueta } = req.params; 
+        const { nombreEtiqueta } = req.params;
         try {
-            const etiqueta = await prisma.etiqueta.findUnique({
+            const etiqueta = await prisma.etiqueta.findMany({
                 where: {
-                    nombre: nombreEtiqueta
+                    nombre: nombreEtiqueta // Aquí se busca por nombre de etiqueta
                 },
                 include: {
                     enlaces: {
                         include: {
-                            enlace: true // Incluye información completa de los enlaces asociados
+                            enlace: true // Incluye los enlaces asociados
                         }
                     }
                 }
             });
     
-            if (!etiqueta) {
+            if (etiqueta.length === 0) { // Asegúrate de verificar si no se encuentra ninguna etiqueta
                 return res.status(404).json({ error: `No se encontró la etiqueta: ${nombreEtiqueta}` });
             }
     
             // Extrae los enlaces de la etiqueta
-            const enlaces = etiqueta.enlaces.map(enlaceEtiqueta => enlaceEtiqueta.enlace);
-
-            console.log({'Obtenido correctamente los enlaces':enlaces})
-            res.json(enlaces);
+            const enlaces = etiqueta[0].enlaces.map(enlaceEtiqueta => enlaceEtiqueta.enlace);
+    
+            console.log({'Enlaces obtenidos correctamente': enlaces})
+            res.json({enlaces:enlaces});
         } catch (error) {
             console.error(error.message);
             res.status(500).json({ error: 'Error al obtener enlaces por etiqueta' });
         }
     }
+    
     
     async getLinksByTitle(req,res){
         const { titulo } = req.query;
@@ -116,7 +119,7 @@ export default class Links{
             if (resultSearch.length === 0) {
                 return res.status(404).json({ message: 'No se encontraron enlaces con ese título' });
               }
-              
+
             res.status(200).json({resultados : resultSearch})
         }catch(error){
             res.status(500).json({'error al obtener links por titulo':error.message})
@@ -139,11 +142,39 @@ export default class Links{
                     },
                 },
             });
-            res.status(200).json({message:'Voto sumado con exito vamoou', enlace : votoSum})
+            
+            res.status(200).json({success:'Voto sumado con exito vamoou', enlace : votoSum})
             console.log({message:'Voto sumado con exito vamoou', enlace : votoSum})
         }catch(error){
             res.status(500).json({'Error al intentar sumar el voto':error.message})
             console.error({error:error.message , message:"Error al sumar el fakin voto"});
+        };
+
+    };
+
+
+    async getLinkById(req,res){
+        const{ id } = req.params;
+        try{
+            const Link = await prisma.enlace.findUnique({
+                include: {
+                    etiquetas: {
+                      include: {
+                        etiqueta: true, 
+                      },
+                    },
+                    comentarios: true,
+                  },
+                where:{
+                    id : parseInt(id)
+                }
+               
+            });
+            res.status(200).json({enlace : Link })
+            console.log({message:'Enlace encontrado correctamente', enlace : Link})
+        }catch(error){
+            res.status(500).json({'Error al intentar encontrar link por id':error.message})
+            console.error({error:error.message , message:"Error al intentar encontrar link por id"});
         };
 
     };

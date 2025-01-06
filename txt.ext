@@ -1,0 +1,93 @@
+Web Foundations
+El Gran Desafío Multi-Framework para Organizar Enlaces 🐈🎉
+
+⌛️ En proceso
+
+    Escenario y Desafío:
+    Imagina esto: te han nombrado como el Director de Enlaces del Internet 🌐 (sí, de todo el internet).
+     Tu tarea: construir una app para organizar enlaces y recursos antes de que la web se derrumbe en el caos y 
+     solo nos queden memes de gatos 🐈. Tienes dos semanas. Sin presión.
+    Tu jefe — una extraña combinación de bibliotecario gruñón y un gato muy real 
+    🐈 — insiste en que construyas esta app seis veces. Una vez con Vanilla JS (porque, obvio) y luego con
+     cada framework de moda que encuentres:
+      React, Vue, Angular, Svelte y Alpine.js. Si parece exagerado, es porque lo es. Pero es lo que quiere el gato.
+       Y tu trabajo es complacer al gato.
+
+    Habilidades que necesitas aprender:
+    Vanilla JS / ES6: Sí, existe. No, no sabe a helado.
+    Frameworks: React, Vue, Angular, Svelte, Alpine.js y, de paso, desarrollar tolerancia al sufrimiento.
+
+    Requisitos obligatorios:
+    Recolectar enlaces 📁: Permite a los usuarios guardar enlaces y añadir etiquetas 🌱 
+    (porque todo en la vida necesita un buen tag).
+    Añadir comentarios y votos 💬: Los usuarios deben poder comentar y votar enlaces, 
+    porque incluso en internet, la democracia importa 🏛️.
+    Dos páginas: Una para navegar los enlaces (con filtros por etiquetas) y otra para mostrar detalles
+     de cada enlace, incluyendo comentarios y votos.
+    Conexión a un servidor común: Todas las versiones de la app deben conectarse al mismo backend.
+    SPA (Single Page Application): Cada app debe ser una aplicación de una sola página, sin renderizado
+     en servidor al cambiar entre las páginas.
+
+    Entregables, Reglas e Ideas de Bonus Opcionales:
+    1 repositorio principal: Incluye el backend con un README que enlace a los seis repositorios frontend, uno por tecnología.
+    README en cada repo: Explica cómo instalar, ejecutar y desplegar la app. La buena documentación 
+    📜 es clave (porque el pobre alma que lea tu código te lo agradecerá).
+    Buenas prácticas: RESTful, código limpio, manejo de errores, etc.
+    Orden de desarrollo: Empieza con el servidor, luego construye la app con Vanilla JS
+     (usando solo funcionalidades nativas de ES6 y sin herramientas de construcción como Babel o Webpack). 
+     Después, copia tu frontend y adapta cada framework.
+    Bonus opcionales (a.k.a. Cómo impresionar al gato 🐈):
+    Despliega todo: Cada versión. Si puedes, hazlo.
+    Crea un favicon lindo: Porque cada app merece uno.
+    Haz que Angular funcione sin lágrimas: Si lo logras, el gato estará impresionado.
+    Añade animaciones divertidas: Mira lottiefiles.com y agrega confeti o algo más llamativo.
+    Buena suerte, valiente CLO. El destino del internet y al menos un emoji de gato descansan sobre tus hombros. 🐈🎉
+
+
+
+Web Foundations
+El Gran Desafío Multi-Framework para Organizar Enlaces 🐈🎉
+
+⌛️ En proceso
+
+    Escenario y Desafío:
+    Imagina esto: te han nombrado como el Director de Enlaces del Internet 🌐 (sí, de todo el internet).
+     Tu tarea: construir una app para organizar enlaces y recursos antes de que la web se derrumbe en el caos y 
+     solo nos queden memes de gatos 🐈. Tienes dos semanas. Sin presión.
+    Tu jefe — una extraña combinación de bibliotecario gruñón y un gato muy real 
+    🐈 — insiste en que construyas esta app seis veces. Una vez con Vanilla JS (porque, obvio) y luego con
+     cada framework de moda que encuentres:
+      React, Vue, Angular, Svelte y Alpine.js. Si parece exagerado, es porque lo es. Pero es lo que quiere el gato.
+       Y tu trabajo es complacer al gato.
+
+    Habilidades que necesitas aprender:
+    Vanilla JS / ES6: Sí, existe. No, no sabe a helado.
+    Frameworks: React, Vue, Angular, Svelte, Alpine.js y, de paso, desarrollar tolerancia al sufrimiento.
+
+    Requisitos obligatorios:
+    Recolectar enlaces 📁: Permite a los usuarios guardar enlaces y añadir etiquetas 🌱 
+    (porque todo en la vida necesita un buen tag).
+    Añadir comentarios y votos 💬: Los usuarios deben poder comentar y votar enlaces, 
+    porque incluso en internet, la democracia importa 🏛️.
+    Dos páginas: Una para navegar los enlaces (con filtros por etiquetas) y otra para mostrar detalles
+     de cada enlace, incluyendo comentarios y votos.
+    Conexión a un servidor común: Todas las versiones de la app deben conectarse al mismo backend.
+    SPA (Single Page Application): Cada app debe ser una aplicación de una sola página, sin renderizado
+     en servidor al cambiar entre las páginas.
+
+    Entregables, Reglas e Ideas de Bonus Opcionales:
+    1 repositorio principal: Incluye el backend con un README que enlace a los seis repositorios frontend, uno por tecnología.
+    README en cada repo: Explica cómo instalar, ejecutar y desplegar la app. La buena documentación 
+    📜 es clave (porque el pobre alma que lea tu código te lo agradecerá).
+    Buenas prácticas: RESTful, código limpio, manejo de errores, etc.
+    Orden de desarrollo: Empieza con el servidor, luego construye la app con Vanilla JS
+     (usando solo funcionalidades nativas de ES6 y sin herramientas de construcción como Babel o Webpack). 
+     Después, copia tu frontend y adapta cada framework.
+    Bonus opcionales (a.k.a. Cómo impresionar al gato 🐈):
+    Despliega todo: Cada versión. Si puedes, hazlo.
+    Crea un favicon lindo: Porque cada app merece uno.
+    Haz que Angular funcione sin lágrimas: Si lo logras, el gato estará impresionado.
+    Añade animaciones divertidas: Mira lottiefiles.com y agrega confeti o algo más llamativo.
+    Buena suerte, valiente CLO. El destino del internet y al menos un emoji de gato descansan sobre tus hombros. 🐈🎉
+
+

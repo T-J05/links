@@ -18,5 +18,6 @@ linkRouter.post('/',links.createLink)
 
 linkRouter.patch("/:id",links.SumarVotos)
 
+linkRouter.get("/enlaceId/:id",links.getLinkById)
 
 export default linkRouter;

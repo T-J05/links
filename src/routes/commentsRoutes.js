@@ -10,5 +10,8 @@ const CommentRouter = express.Router()
 CommentRouter.post("/",comments.createComment)
 
 
+CommentRouter.post("/:enlaceId",comments.findByIdComment)
+
+
 
 export default CommentRouter;
