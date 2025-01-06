@@ -76,33 +76,54 @@ export default class Links{
     async getLinksByTag(req, res) {
         const { nombreEtiqueta } = req.params;
         try {
-            const etiqueta = await prisma.etiqueta.findMany({
+            // Busca la etiqueta por su nombre y los enlaces asociados
+            const etiqueta = await prisma.etiqueta.findUnique({
                 where: {
-                    nombre: nombreEtiqueta // Aquí se busca por nombre de etiqueta
+                    id: parseInt(nombreEtiqueta), // Busca la etiqueta por nombre
                 },
                 include: {
-                    enlaces: {
+                    enlaces: { // Relación con la tabla intermedia EnlaceEtiqueta
                         include: {
-                            enlace: true // Incluye los enlaces asociados
+                            enlace: { // Incluye los detalles del enlace
+                                include: {
+                                    etiquetas: { // Incluye las etiquetas asociadas al enlace
+                                        include: {
+                                            etiqueta: true // Aquí incluimos las etiquetas del enlace
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             });
     
-            if (etiqueta.length === 0) { // Asegúrate de verificar si no se encuentra ninguna etiqueta
+            if (!etiqueta) { // Verifica si no se encontró la etiqueta
                 return res.status(404).json({ error: `No se encontró la etiqueta: ${nombreEtiqueta}` });
             }
     
-            // Extrae los enlaces de la etiqueta
-            const enlaces = etiqueta[0].enlaces.map(enlaceEtiqueta => enlaceEtiqueta.enlace);
+            // Extrae los enlaces y sus etiquetas
+            const enlaces = etiqueta.enlaces.map((enlaceEtiqueta) => {
+                const enlace = enlaceEtiqueta.enlace;
+                return {
+                    id: enlace.id,
+                    url: enlace.url,
+                    titulo: enlace.titulo,
+                    descripcion: enlace.descripcion,
+                    fechaCreacion: enlace.fechaCreacion,
+                    votos: enlace.votos,
+                    etiquetas: enlace.etiquetas.map(etiquetaEnlace => etiquetaEnlace.etiqueta.nombre), // Extrae los nombres de las etiquetas
+                };
+            });
     
-            console.log({'Enlaces obtenidos correctamente': enlaces})
-            res.json({enlaces:enlaces});
+            console.log({ 'Enlaces obtenidos correctamente': enlaces });
+            res.json({ enlaces });
         } catch (error) {
             console.error(error.message);
             res.status(500).json({ error: 'Error al obtener enlaces por etiqueta' });
         }
     }
+    
     
     
     async getLinksByTitle(req,res){
