@@ -7,7 +7,17 @@ import cors from 'cors'
 const app = express()
 const port = process.env.PORT || 3002
 app.use(cors()); 
-app.use(cors({ origin: 'http://127.0.0.1:5500' }));
+const allowedOrigins = ['http://localhost:5173', 'http://127.0.0.1:5500'];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true); // Permite la solicitud
+    } else {
+      callback(new Error('No permitido por CORS')); // Bloquea la solicitud
+    }
+  }
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 

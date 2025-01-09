@@ -44,50 +44,155 @@ El Gran Desafío Multi-Framework para Organizar Enlaces 🐈🎉
     Buena suerte, valiente CLO. El destino del internet y al menos un emoji de gato descansan sobre tus hombros. 🐈🎉
 
 
+src/
+│
+├── components/          # Componentes reutilizables y modulares
+│   ├── Button.jsx
+│   ├── Header.jsx
+│   ├── Footer.jsx
+│   ├── Navbar/
+│   │   ├── Navbar.jsx
+│   │   └── Navbar.css
+│   └── LinkCard/
+│       ├── LinkCard.jsx
+│       └── LinkCard.css
+│
+├── pages/               # Componentes principales para las páginas
+│   ├── Home.jsx
+│   ├── Home.css
+│   ├── Details.jsx
+│   └── Details.css
+│
+├── hooks/               # Custom hooks (opcional)
+│   ├── useFetchLinks.js
+│   └── useAuth.js
+│
+├── services/            # Llamadas a la API y lógica externa
+│   ├── api.js           # Configuración base de Axios o fetch
+│   ├── linksService.js  # Funciones para manejar los enlaces
+│   └── authService.js   # Funciones para manejar autenticación
+│
+├── context/             # Context API para estado global (opcional)
+│   ├── AuthContext.jsx
+│   ├── LinksContext.jsx
+│   └── ThemeContext.jsx
+│
+├── styles/              # Archivos CSS globales o variables de diseño
+│   ├── variables.css    # Variables globales (colores, tipografías)
+│   └── global.css       # Estilos generales de la app
+│
+├── utils/               # Funciones y helpers reutilizables
+│   ├── formatDate.js
+│   ├── filterLinks.js
+│   └── validateForm.js
+│
+├── App.jsx              # Punto de entrada de la app
+├── main.jsx             # Renderizado principal (ReactDOM)
+└── assets/              # Recursos estáticos (imágenes, íconos, etc.)
+    ├── logo.svg
+    ├── favicon.ico
+    └── background.jpg
 
-Web Foundations
-El Gran Desafío Multi-Framework para Organizar Enlaces 🐈🎉
 
-⌛️ En proceso
+Si ya has configurado tu proyecto con Vite, puedes organizarlo siguiendo una estructura modular estándar, lo que hará que tu código sea más claro, escalable y fácil de mantener. Aquí te muestro una estructura típica para proyectos de React:
+Estructura de carpetas estándar
 
-    Escenario y Desafío:
-    Imagina esto: te han nombrado como el Director de Enlaces del Internet 🌐 (sí, de todo el internet).
-     Tu tarea: construir una app para organizar enlaces y recursos antes de que la web se derrumbe en el caos y 
-     solo nos queden memes de gatos 🐈. Tienes dos semanas. Sin presión.
-    Tu jefe — una extraña combinación de bibliotecario gruñón y un gato muy real 
-    🐈 — insiste en que construyas esta app seis veces. Una vez con Vanilla JS (porque, obvio) y luego con
-     cada framework de moda que encuentres:
-      React, Vue, Angular, Svelte y Alpine.js. Si parece exagerado, es porque lo es. Pero es lo que quiere el gato.
-       Y tu trabajo es complacer al gato.
+src/
+│
+├── components/          # Componentes reutilizables y modulares
+│   ├── Button.jsx
+│   ├── Header.jsx
+│   ├── Footer.jsx
+│   ├── Navbar/
+│   │   ├── Navbar.jsx
+│   │   └── Navbar.css
+│   └── LinkCard/
+│       ├── LinkCard.jsx
+│       └── LinkCard.css
+│
+├── pages/               # Componentes principales para las páginas
+│   ├── Home.jsx
+│   ├── Home.css
+│   ├── Details.jsx
+│   └── Details.css
+│
+├── hooks/               # Custom hooks (opcional)
+│   ├── useFetchLinks.js
+│   └── useAuth.js
+│
+├── services/            # Llamadas a la API y lógica externa
+│   ├── api.js           # Configuración base de Axios o fetch
+│   ├── linksService.js  # Funciones para manejar los enlaces
+│   └── authService.js   # Funciones para manejar autenticación
+│
+├── context/             # Context API para estado global (opcional)
+│   ├── AuthContext.jsx
+│   ├── LinksContext.jsx
+│   └── ThemeContext.jsx
+│
+├── styles/              # Archivos CSS globales o variables de diseño
+│   ├── variables.css    # Variables globales (colores, tipografías)
+│   └── global.css       # Estilos generales de la app
+│
+├── utils/               # Funciones y helpers reutilizables
+│   ├── formatDate.js
+│   ├── filterLinks.js
+│   └── validateForm.js
+│
+├── App.jsx              # Punto de entrada de la app
+├── main.jsx             # Renderizado principal (ReactDOM)
+└── assets/              # Recursos estáticos (imágenes, íconos, etc.)
+    ├── logo.svg
+    ├── favicon.ico
+    └── background.jpg
 
-    Habilidades que necesitas aprender:
-    Vanilla JS / ES6: Sí, existe. No, no sabe a helado.
-    Frameworks: React, Vue, Angular, Svelte, Alpine.js y, de paso, desarrollar tolerancia al sufrimiento.
 
-    Requisitos obligatorios:
-    Recolectar enlaces 📁: Permite a los usuarios guardar enlaces y añadir etiquetas 🌱 
-    (porque todo en la vida necesita un buen tag).
-    Añadir comentarios y votos 💬: Los usuarios deben poder comentar y votar enlaces, 
-    porque incluso en internet, la democracia importa 🏛️.
-    Dos páginas: Una para navegar los enlaces (con filtros por etiquetas) y otra para mostrar detalles
-     de cada enlace, incluyendo comentarios y votos.
-    Conexión a un servidor común: Todas las versiones de la app deben conectarse al mismo backend.
-    SPA (Single Page Application): Cada app debe ser una aplicación de una sola página, sin renderizado
-     en servidor al cambiar entre las páginas.
+Explicación de las carpetas
 
-    Entregables, Reglas e Ideas de Bonus Opcionales:
-    1 repositorio principal: Incluye el backend con un README que enlace a los seis repositorios frontend, uno por tecnología.
-    README en cada repo: Explica cómo instalar, ejecutar y desplegar la app. La buena documentación 
-    📜 es clave (porque el pobre alma que lea tu código te lo agradecerá).
-    Buenas prácticas: RESTful, código limpio, manejo de errores, etc.
-    Orden de desarrollo: Empieza con el servidor, luego construye la app con Vanilla JS
-     (usando solo funcionalidades nativas de ES6 y sin herramientas de construcción como Babel o Webpack). 
-     Después, copia tu frontend y adapta cada framework.
-    Bonus opcionales (a.k.a. Cómo impresionar al gato 🐈):
-    Despliega todo: Cada versión. Si puedes, hazlo.
-    Crea un favicon lindo: Porque cada app merece uno.
-    Haz que Angular funcione sin lágrimas: Si lo logras, el gato estará impresionado.
-    Añade animaciones divertidas: Mira lottiefiles.com y agrega confeti o algo más llamativo.
-    Buena suerte, valiente CLO. El destino del internet y al menos un emoji de gato descansan sobre tus hombros. 🐈🎉
+    components/:
+        Contiene los componentes reutilizables que puedes usar en varias partes de tu aplicación.
+        Organiza los componentes grandes en carpetas (por ejemplo, Navbar/ y LinkCard/) si tienen lógica o estilos propios.
+
+    pages/:
+        Cada archivo en esta carpeta corresponde a una página principal de tu aplicación.
+        Estas páginas suelen manejar las rutas principales (como Home y Details) y ensamblan componentes.
+
+    hooks/:
+        Almacena custom hooks (funciones reutilizables que usan hooks de React) para evitar duplicación de lógica en componentes.
+
+    services/:
+        Aquí defines funciones para interactuar con tu API (fetch o axios).
+        Por ejemplo, linksService.js puede tener funciones como getLinks, addLink, deleteLink, etc.
+
+    context/:
+        Guarda tus contextos de estado global. Por ejemplo, si quieres compartir la información de autenticación (AuthContext) o los enlaces (LinksContext) entre múltiples componentes.
+
+    styles/:
+        Define estilos globales, como colores o tipografías, y aplica los estilos que afectan a toda la app.
+
+    utils/:
+        Incluye funciones auxiliares o helpers que pueden ser reutilizados en varias partes del proyecto (por ejemplo, validaciones, formateo de fechas, etc.).
+
+    assets/:
+        Almacena archivos estáticos como imágenes, íconos, fuentes personalizadas o videos.
+
+Pasos para construir esta estructura
+
+    Identifica componentes reutilizables:
+        Por ejemplo, botones, tarjetas de enlace (LinkCard), formularios, etc.
+        Agrúpalos en la carpeta components.
+
+    Define las rutas principales:
+        Por ejemplo, /home y /details.
+        Crea componentes en la carpeta pages para representarlas.
+
+    Separa lógica externa:
+        Llama a tu API desde la carpeta services en lugar de hacerlo directamente en los componentes.
+
+    Añade estilos globales:
+        Configura un archivo global.css y agrégalo en tu main.jsx.
+
+    Organiza los hooks y helpers:
+        Si encuentras patrones repetidos, crea un custom hook o helper en las carpetas hooks y utils.
 
 
