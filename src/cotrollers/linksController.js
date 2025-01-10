@@ -105,6 +105,7 @@ export default class Links{
             // Extrae los enlaces y sus etiquetas
             const enlaces = etiqueta.enlaces.map((enlaceEtiqueta) => {
                 const enlace = enlaceEtiqueta.enlace;
+                
                 return {
                     id: enlace.id,
                     url: enlace.url,
@@ -112,7 +113,9 @@ export default class Links{
                     descripcion: enlace.descripcion,
                     fechaCreacion: enlace.fechaCreacion,
                     votos: enlace.votos,
-                    etiquetas: enlace.etiquetas.map(etiquetaEnlace => etiquetaEnlace.etiqueta.nombre), // Extrae los nombres de las etiquetas
+                    etiquetas: enlace.etiquetas.map(etiquetaEnlace => ({
+                        id:etiquetaEnlace.etiqueta.id, 
+                        nombre:etiquetaEnlace.etiqueta.nombre})), // Extrae los nombres de las etiquetas
                 };
             });
     
