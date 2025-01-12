@@ -10,7 +10,7 @@ const CommentRouter = express.Router()
 CommentRouter.post("/",comments.createComment)
 
 
-CommentRouter.post("/:enlaceId",comments.findByIdComment)
+CommentRouter.get("/:enlaceId",comments.findByIdComment)
 
 
 
